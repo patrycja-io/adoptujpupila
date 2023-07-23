@@ -1,0 +1,71 @@
+.navbar {
+  background-color: #ffdcf5; /* Pink header background */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 100px;
+  color: #111111; /* White text color */
+  height: 100px;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  font-family: "Circular", sans-serif;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  font-family: "Circular", sans-serif;
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+}
+
+/* New styles for the button */
+.nav-links button {
+  background-color: black;
+  color: white;
+  font-family: "Circular", sans-serif;
+  font-size: 20px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover styles for the button */
+.nav-links button:hover {
+  background-color: #2b2b2b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.language-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  position: relative;
+}
+
+.flag-icon {
+  width: 30px;
+  height: 20px;
+}

@@ -1,0 +1,82 @@
+/* SearchBar.css */
+
+/* Reset default margin and padding for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a modern font style (you can use the font-family of your choice) */
+body {
+    font-family: Circular, Arial, sans-serif;
+}
+
+/* Style for the search bar container */
+.search-bar {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 25px; /* Increase padding for more space */
+    height: 100px; /* Set height to 100px */
+    margin: 50px; /* Set margin to 25px */
+}
+
+/* Style for the search input fields */
+.search-bar input[type="text"],
+.search-bar select {
+    margin: 0 10px;
+    padding: 10px; /* Increase padding for more space */
+    border: 2px solid #111;
+    border-radius: 5px; /* Increase border-radius for sharp edges */
+    font-size: 20px; /* Increase font size */
+    outline: none; /* Remove the focus outline */
+    height: 100px; /* Set a fixed height for the input fields */
+}
+
+/* Adjust the width of the search input field */
+.search-bar input[type="text"] {
+    width: 550px; /* Set the desired width */
+    color: #111111;
+}
+
+/* Style for the category dropdown */
+.search-bar select {
+    background-color: #fff;
+    cursor: pointer;
+    width:250px;/* Add padding to the right side for spacing */
+    /* The padding-right value can be adjusted to your preference */
+    /* Dropdown arrow styles */
+    appearance: none; /* Remove default arrow (for browsers that support it) */
+    /* Replace with your custom dropdown arrow image */
+    background-position: right 15px center; /* Adjust position for your arrow image */
+    background-repeat: no-repeat;
+}
+
+/* Style for the dropdown menu */
+.search-bar select option {
+    background-color: #fff; /* Set background color of each option */
+    color: #333; /* Set text color of each option */
+    padding: 10px; /* Add padding to each option for better spacing */
+}
+
+
+/* Style for the search button */
+.search-bar button {
+    background-color: black; /* Change to black background */
+    color: white; /* Change to white text color */
+    border: none;
+    border-radius: 10px; /* Increase border-radius for sharp edges */
+    padding: 12px 20px; /* Increase padding for more space */
+    font-size: 20px; /* Increase font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    height: 100px;
+    width: 550px
+}
+
+.search-bar button:hover {
+    background-color: #2b2b2b; /* Change to dark grey background on hover */
+}

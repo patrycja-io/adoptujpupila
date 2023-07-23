@@ -1,0 +1,15 @@
+.footer {
+    background-color: #111111; /* Pink footer background */
+    padding: 10px;
+    text-align: center;
+    color: #ffffff; /* White text color */
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer img {
+    width: 16px; /* Adjust the size of the heart icon as needed */
+    vertical-align: middle;
+}
