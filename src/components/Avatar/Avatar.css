@@ -1,13 +1,13 @@
 /* Avatar.css */
 
 .avatar-container {
-    width: 200px; /* Set the desired width of the container */
-    height: 200px; /* Set the desired height of the container */
-    background-color: #f0f0f0; /* Set a background color for the container */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  width: 250px; /* Set the desired width of the container */
+  height: 250px; /* Set the desired height of the container */
+  background-color: #f0f0f0; /* Set a background color for the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Style the SVG avatar if needed */
@@ -16,25 +16,24 @@
 } */
 
 .avatar-container p {
-    margin-top: 10px; /* Add some spacing between the avatar and name */
-    font-size: 16px; /* Set the desired font size for the name */
-    color: #333; /* Set the desired color for the name */
+  margin-top: 10px; /* Add some spacing between the avatar and name */
+  font-size: 16px; /* Set the desired font size for the name */
+  color: #333; /* Set the desired color for the name */
 }
 
 .avatar-container {
-    /* Add styles for the avatar container */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Add styles for the avatar container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .avatar-container div {
-    /* Add styles for the SVG container */
-    width: 128px;
-    height: 128px;
+  /* Add styles for the SVG container */
+  width: 128px;
+  height: 128px;
 }
 
 .avatar-container p {
-    /* Add styles for the name text */
-
+  /* Add styles for the name text */
 }
