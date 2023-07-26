@@ -84,3 +84,7 @@
   width: 20px;
   height: 20px;
 }
+.logo-link{
+  text-decoration:none;
+  color:black;
+}
