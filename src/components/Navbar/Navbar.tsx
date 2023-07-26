@@ -29,7 +29,8 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="logo-text">
-        <a href="/"  className="logo-link">
+        <a href="/"  className="logo-link" target="_blank"
+           rel="noopener noreferrer">
           <FaPaw className="logo" /> AdoptujPupila.pl
         </a>
       </div>
