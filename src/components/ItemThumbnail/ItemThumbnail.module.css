@@ -1,0 +1,84 @@
+/* ItemThumbnail.module.css */
+
+/* Container for the entire item thumbnail */
+.searchResultItem {
+  position: relative; /* Ensure relative positioning for absolute elements */
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+/* Image container */
+.thumbnailContainer {
+  position: relative;
+  margin-right: 16px;
+}
+
+/* Image style */
+.thumbnailImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Favorite button style */
+.favoriteButton {
+  position: absolute;
+  bottom: 5px;
+  right: 12px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 4px;
+  cursor: pointer;
+}
+
+/* Favorite button SVG icon style (adjust the size and color as needed) */
+.favoriteButton svg {
+  width: 24px;
+  height: 24px;
+  fill: #f5d0ff;
+}
+
+/* Favorite button active style (when favorited) */
+.favoriteActive {
+  background-color: #f5d0ff;
+  color: white;
+}
+
+/* Content container */
+.itemContent {
+  flex: 1;
+}
+
+/* Title style */
+.itemTitle {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  top: 16px;
+  color: #333; /* Example title color */
+}
+/* Description style */
+.itemDescription {
+  font-size: 16px;
+  margin: 36px 0;
+  color: #777; /* Example description color */
+  position: absolute;
+}
+
+/* Location style */
+.itemLocation {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 14px;
+  margin: 0;
+  color: #fff;
+  background-color: rgb(0, 0, 0);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
