@@ -3,13 +3,13 @@ import './Avatar.css'; // Create a CSS file for styling if needed
 
 interface AvatarProps {
   name: string;
-  svgData: string; // Add the svgData prop
+  image: string;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ name, svgData }) => {
+const Avatar: React.FC<AvatarProps> = ({ name, image }) => {
   return (
       <div className="avatar-container">
-        <div dangerouslySetInnerHTML={{ __html: svgData }} />
+        <img src={image} alt={name} />
         <p>{name}</p>
       </div>
   );
