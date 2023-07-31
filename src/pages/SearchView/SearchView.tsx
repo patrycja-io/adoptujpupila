@@ -1,7 +1,12 @@
-// SearchView.tsx
-
 import React, { useState } from "react";
 import "./SearchView.css";
+import SearchResultContainer from "../../components/SearchContainer/SearchResultContainer";
+
+interface Breadcrumb {
+  label: string;
+  link: string;
+}
+
 
 const SearchView: React.FC = () => {
   const [privatePerson, setPrivatePerson] = useState<boolean>(false);
@@ -23,8 +28,39 @@ const SearchView: React.FC = () => {
     setSortBy(e.target.value);
   };
 
+  const dummySearchResults = [
+    {
+      id: 1,
+      title: "Item 1",
+      description: "Description for Item 1",
+      location: "Location 1",
+      imageUrl: "https://unsplash.com/photos/MoDcnVRN5JU", // URL of the image for Item 1
+    },
+    {
+      id: 2,
+      title: "Item 2",
+      description: "Description for Item 2",
+      location: "Location 2",
+      imageUrl: "https://unsplash.com/photos/yMSecCHsIBc", // URL of the image for Item 2
+    },
+  ];
+
+  const breadcrumbs: Breadcrumb[] = [
+    { label: "Home", link: "/" },
+    { label: "Search", link: "/search" },
+  ];
+
   return (
     <div className="search-view">
+      {/* Breadcrumbs */}
+      <div className="breadcrumbs">
+        {breadcrumbs.map((breadcrumb, index) => (
+            <React.Fragment key={index}>
+              <a href={breadcrumb.link}>{breadcrumb.label}</a>
+              {index !== breadcrumbs.length - 1 && <span> / </span>}
+            </React.Fragment>
+        ))}
+      </div>
       <div className="filters-container">
         {" "}
         <div className="additional-filters">
@@ -59,6 +95,8 @@ const SearchView: React.FC = () => {
         </div>
         {/* Display search results here */}
       </div>
+      {/* Render the SearchResultContainer with the dummy search results */}
+      <SearchResultContainer searchResults={dummySearchResults} />
       {/* Display search results here */}
     </div>
   );
