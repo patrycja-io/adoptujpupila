@@ -25,16 +25,11 @@ header h1 {
   display: flex;
   align-items: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .avatar-item {
   margin: 10px;
-}
-
-.avatar-item img {
-  max-width: 120px;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .avatar-row {

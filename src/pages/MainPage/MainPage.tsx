@@ -1,32 +1,42 @@
 import React, { Fragment } from "react";
 import "./MainPage.css";
 import Avatar from "../../components/Avatar/Avatar";
+import Dolnyslask from "../../assets/Dolnyslask.jpg";
+import wielkopolskie from "../../assets/wielkopolskie.png";
+import pomorskie from "../../assets/pomorskie.jpg";
+import zp from "../../assets/zp.png";
+import opolskie from "../../assets/opolskie.jpeg";
+import mazowsze from "../../assets/mazowsze.png";
+
+
 import { useTranslation } from "react-i18next";
 
+interface Voivodeship {
+  name: string;
+  image: string; // Assuming the image is a URL or file path
+}
 const MainPage: React.FC = () => {
-  const personName = "John Doe";
-  const avatarImage = "src/assets/dog.png"; // Use the correct path and filename
 
   const catAvatarsData: { name: string; svgData: string }[] = [
     {
       name: "cat1",
-      svgData: '<svg ></svg>',
+      svgData: "<svg ></svg>",
     },
     {
       name: "cat1",
-      svgData: '<svg ></svg>',
+      svgData: "<svg ></svg>",
     },
     {
       name: "cat1",
-      svgData: '<svg  ></svg>',
+      svgData: "<svg  ></svg>",
     },
     {
       name: "cat1",
-      svgData: '<svg ></svg>',
+      svgData: "<svg ></svg>",
     },
     {
       name: "cat1",
-      svgData: '<svg ></svg>',
+      svgData: "<svg ></svg>",
     },
     // Add more cat avatars data as needed
   ];
@@ -34,7 +44,7 @@ const MainPage: React.FC = () => {
   const dogAvatarsData: { name: string; svgData: string }[] = [
     {
       name: "dog1",
-      svgData: '<svg ></svg>',
+      svgData: "<svg ></svg>",
     },
     {
       name: "dog1",
@@ -62,86 +72,86 @@ const MainPage: React.FC = () => {
       {avatarsData.map((avatarData, index) => (
         <div key={`${avatarData.name}-${index}`} className="avatar-item">
           {/* Render the SVG component */}
-          <Avatar name={avatarData.name} svgData={avatarData.svgData} />
+          <Avatar name={avatarData.name} image={avatarData.svgData} />
         </div>
       ))}
     </div>
   );
 
-  const voivodeShips: { name: string; svgData: string }[] = [
+  const voivodeShips: Voivodeship[] = [
     {
       name: "Dolnośląskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Kujawsko-Pomorskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: pomorskie,
     },
     {
       name: "Lubelskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Lubuskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Lódzkie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Małopolskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Mazowieckie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: mazowsze,
     },
     {
       name: "Opolskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: opolskie,
     },
     {
       name: "Podkarpackie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Podlaskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Pomorskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: pomorskie,
     },
     {
       name: "Sląskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Swiętokrzyskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Warmińsko-mazurskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: Dolnyslask,
     },
     {
       name: "Wielkopolskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: wielkopolskie,
     },
     {
       name: "Zachodniopomorskie",
-      svgData: '<svg viewBox="0 0 36 36" fill="none" ... ></svg>',
+      image: zp,
     },
   ];
   const VoivodeshipsList: React.FC<{
-    shipsData: { name: string; svgData: string }[];
-  }> = ({ shipsData }) => (
+    voivodeships: Voivodeship[];
+  }> = ({ voivodeships }) => (
     <div className="avatar-row">
-      {shipsData.map((shipData, index) => (
-        <div key={`${shipData.name}-${index}`} className="avatar-item">
-          {/* Render the SVG component */}
-          <Avatar name={shipData.name} svgData={shipData.svgData} />
+      {voivodeships.map((voivodeship, index) => (
+        <div key={`${voivodeship.name}-${index}`} className="avatar-item">
+          {/* Render the image using the "image" prop */}
+          <Avatar name={voivodeship.name} image={voivodeship.image} />
         </div>
       ))}
     </div>
@@ -165,7 +175,7 @@ const MainPage: React.FC = () => {
           <h1 className="centered-text">Schroniska</h1>
         </header>
 
-        <VoivodeshipsList shipsData={voivodeShips} />
+        <VoivodeshipsList voivodeships={voivodeShips} />
       </div>
       <div className="promowane-container">
         <header className="banner">
