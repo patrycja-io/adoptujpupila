@@ -31,17 +31,19 @@ const SearchView: React.FC = () => {
   const dummySearchResults = [
     {
       id: 1,
-      title: "Item 1",
-      description: "Description for Item 1",
-      location: "Location 1",
-      imageUrl: "https://unsplash.com/photos/MoDcnVRN5JU", // URL of the image for Item 1
+      title: "Pregowana 3 miesieczna kotka",
+      dateAdded: "2022-03-12",
+      category: 'shelter',
+      location: "Kartuzy, Kujawsko-Pomorskie ",
+      imageUrl: "https://source.unsplash.com/ZCHj_2lJP00", // URL of the image for Item 1
     },
     {
       id: 2,
       title: "Item 2",
-      description: "Description for Item 2",
+      dateAdded: "2022-03-12",
+      category: 'shelter',
       location: "Location 2",
-      imageUrl: "https://unsplash.com/photos/yMSecCHsIBc", // URL of the image for Item 2
+      imageUrl: "https://source.unsplash.com/yMSecCHsIBc", // URL of the image for Item 2
     },
   ];
 
