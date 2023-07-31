@@ -1,0 +1,45 @@
+.item {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.item .image {
+    flex: 1;
+}
+
+.item .image img {
+    width: 100%;
+}
+
+.item .details {
+    flex: 2;
+    padding: 0 10px;
+}
+
+.item .details h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.item .details p {
+    margin: 5px 0;
+}
+
+.item .details .price {
+    font-weight: bold;
+}
+
+.item .details .description {
+    color: #555;
+}
+
+.item .details .contact {
+    margin-top: 10px;
+}
+
+.item .details .contact p.phone {
+    font-size: 14px;
+    color: #666;
+}
