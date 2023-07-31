@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
+import {  useNavigate } from 'react-router-dom';
+
+// Inside your component:
+
 
 // Define the category options (you can modify this based on your categories)
 const categories: string[] = ['Wszystkie', 'Koty', 'Psy', 'Pozostale'];
@@ -16,9 +20,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   const [query, setQuery] = useState<string>('');
   const [location, setLocation] = useState<string>('All Poland');
   const [category, setCategory] = useState<string>('All');
-
+  const navigate =  useNavigate();
   const handleSearch = () => {
     onSearch(query, location, category);
+    // Perform the redirection to the searchView.tsx page
+    navigate('/searchView'); // Replace '/searchView' with the actual path of your search view page
   };
 
   return (
