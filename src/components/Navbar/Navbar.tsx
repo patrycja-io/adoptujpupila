@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Navbar.css";
-import { FaPaw, FaRegUser } from "react-icons/fa";
-import { TbMailFilled } from "react-icons/tb";
-import { AiOutlineHeart } from "react-icons/ai";
+import { FaPaw } from "react-icons/fa";
+import {
+  AiOutlineHeart,
+  AiOutlinePlusSquare,
+  AiOutlineMail,
+  AiFillPlusCircle,
+} from "react-icons/ai";
+import { FiUser } from "react-icons/fi";
 import polandFlag from "../../assets/poland-flag.png";
 import ukFlag from "../../assets/uk-flag.png";
 
 const Navbar: React.FC = () => {
-  const { isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
   const [currentLang, setCurrentLang] = useState("PL");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
 
   const handleChangeLanguage = (lang: string) => {
     setCurrentLang(lang);
@@ -25,19 +31,85 @@ const Navbar: React.FC = () => {
       loginWithRedirect();
     }
   };
+  // State to manage mobile menu visibility
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  // Function to toggle the mobile menu
+  const toggleMobileMenu = () => {
+    setShowMobileMenu((prevState) => !prevState);
+  };
+  // Update isMobile state on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <nav className="navbar">
       <div className="logo-text">
-        <a href="/"  className="logo-link" target="_blank"
-           rel="noopener noreferrer">
-          <FaPaw className="logo" /> AdoptujPupila.pl
-        </a>
+        {/* Show the full logo (icon + text) on desktop */}
+        {!isMobile && (
+          <a
+            href="/"
+            className="logo-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaPaw className="logo" /> AdoptujPupila.pl
+          </a>
+        )}
       </div>
+
+      {/* Mobile menu */}
+      <ul className="nav-links-mobile">
+        <a
+          href="/"
+          className="logo-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaPaw className="logo" />
+        </a>
+        <li>
+          <a href="messages" onClick={handleLinkClick} data-auth="false">
+            <AiOutlineMail className="message-icon" />
+          </a>
+        </li>
+        {/* Show the plus icon instead of the "Dodaj Ogloszenie" button on mobile */}
+        <li className="dodaj-ogloszenie">
+          <a href="/" onClick={() => loginWithRedirect()} data-auth="false">
+            <AiFillPlusCircle className="plus-icon" />
+          </a>
+        </li>
+        <li>
+          <a href="favourites" onClick={handleLinkClick} data-auth="false">
+            <AiOutlineHeart className="heart-icon" />
+          </a>
+        </li>
+
+        {/* Show the FiUser icon instead of "Twoje Konto" on mobile */}
+        <li>
+          <a
+            href="/my-account"
+            onClick={() => loginWithRedirect()}
+            data-auth={isAuthenticated ? "false" : "true"}
+          >
+            <FiUser className="user-icon" />
+          </a>
+        </li>
+      </ul>
+
       <ul className="nav-links">
         <li>
           <a href="messages" onClick={handleLinkClick} data-auth="false">
-            <TbMailFilled className="message-icon" />
+            <AiOutlineMail className="message-icon" />
           </a>
         </li>
         <li>
