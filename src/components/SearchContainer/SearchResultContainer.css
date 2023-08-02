@@ -1,8 +1,6 @@
 .search-result-container {
     display: flex;
     flex-direction: column; /* Stack items vertically */
-    margin-left: 350px; /* Add margin to the left side */
-    margin-right: 350px; /* Add margin to the right side */
 }
 .search-result-item {
     width: 100%; /* Occupy the full width of the container */
