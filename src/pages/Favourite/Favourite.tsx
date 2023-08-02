@@ -1,7 +1,7 @@
 // src/pages/FavoritesPage.tsx
 import React, { useEffect, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { getFavoriteItemsForUser } from '../api'; // Replace with your API function to fetch favorite items
+// import { getFavoriteItemsForUser } from '../api'; // Replace with your API function to fetch favorite items
 
 interface FavoriteItem {
   id: number;
@@ -17,9 +17,9 @@ const FavoritesPage: React.FC = () => {
   useEffect(() => {
     if (isAuthenticated && user) {
       // Fetch the user's favorite items from the database
-      getFavoriteItemsForUser(user.sub).then((items) => {
-        setFavoriteItems(items);
-      });
+      // getFavoriteItemsForUser(user.sub).then((items) => {
+      //   setFavoriteItems(items);
+      // });
     }
   }, [isAuthenticated, user]);
 

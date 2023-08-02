@@ -91,7 +91,7 @@ const SearchView: React.FC = () => {
           <span>Sort by:</span>
           <select value={sortBy} onChange={handleSortChange}>
             <option value="newest">Od Najnowszych</option>
-            <option value="newest">Od Najstarszych</option>
+            <option value="oldest">Od Najstarszych</option>
             <option value="most_liked">Najulubiensze</option>
           </select>
         </div>

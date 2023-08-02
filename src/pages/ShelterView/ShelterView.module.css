@@ -1,0 +1,116 @@
+/* ShelterView.module.css */
+
+/* Common styles for all screen sizes */
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.shelterInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.socialLinks a {
+    text-decoration: none;
+    color: #000;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.contact p {
+    margin: 5px 0;
+}
+
+.adsList h3 {
+    margin-bottom: 10px;
+}
+
+.adsList li {
+    margin-bottom: 20px;
+}
+
+.adsList h4 {
+    margin-bottom: 5px;
+}
+
+.adsList p {
+    margin: 0;
+}
+
+.adsList button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens (e.g., mobile devices) */
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .socialLinks a {
+        padding: 3px 8px;
+    }
+
+    .adsList li {
+        margin-bottom: 10px;
+    }
+
+    .adsList button {
+        padding: 3px 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Further adjustments for even smaller screens (e.g., smaller mobile devices) */
+    .avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .socialLinks {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .socialLinks a {
+        padding: 3px 6px;
+    }
+
+    .adsList h3 {
+        font-size: 18px;
+    }
+
+    .adsList li {
+        margin-bottom: 5px;
+    }
+
+    .adsList button {
+        padding: 2px 6px;
+    }
+}

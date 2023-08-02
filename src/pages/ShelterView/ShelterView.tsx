@@ -1,5 +1,8 @@
-import React from 'react';
-import styles from './ShelterView.module.css'; // Import CSS module
+import React from "react";
+import styles from "./ShelterView.module.css";
+import ItemThumbnail from "../../components/ItemThumbnail/ItemThumbnail"; // Import CSS module
+import placeholder from "../../assets/placeholder.png";
+// Assuming you have a valid shelterId that you want to pass to ShelterView
 
 interface SocialLink {
   platform: string;
@@ -8,8 +11,13 @@ interface SocialLink {
 
 interface AdData {
   id: number;
+  shelterId: number;
   title: string;
-  description: string;
+  dateAdded: string;
+  category: string;
+  location: string;
+  imageUrl: string;
+
   // Add more ad-specific data
 }
 
@@ -25,23 +33,23 @@ interface ShelterData {
 }
 
 interface ShelterViewProps {
-  shelterId: string;
+  shelterId: number;
 }
 
 const ShelterView: React.FC<ShelterViewProps> = ({ shelterId }) => {
   // Fetch shelter's data based on shelterId or any other logic you have
   // Replace the placeholders with actual data
   const shelterData: ShelterData = {
-    name: 'Shelter Name',
-    avatar: 'avatar_url.jpg',
+    name: "Shelter Name",
+    avatar: placeholder,
     socialLinks: [
-      { platform: 'Facebook', url: 'https://www.facebook.com/shelter' },
-      { platform: 'Instagram', url: 'https://www.instagram.com/shelter' },
+      { platform: "Facebook", url: "http://www.patrycja.io" },
+      { platform: "Instagram", url: "http://www.patrycja.io" },
       // Add more social links as needed
     ],
     contact: {
-      email: 'contact@shelter.com',
-      phone: '+1234567890',
+      email: "contact@shelter.com",
+      phone: "+1234567890",
       // Add more contact details as needed
     },
   };
@@ -51,15 +59,21 @@ const ShelterView: React.FC<ShelterViewProps> = ({ shelterId }) => {
   const adsData: AdData[] = [
     {
       id: 1,
-      title: 'Ad Title 1',
-      description: 'Ad Description 1',
-      // Add more ad-specific data
+      shelterId: 1, // Replace 1 with the actual shelterId for this ad
+      title: "Pregowana 3 miesieczna kotka",
+      dateAdded: "2022-03-12",
+      category: "shelter",
+      location: "Kartuzy, Kujawsko-Pomorskie ",
+      imageUrl: "https://source.unsplash.com/ZCHj_2lJP00", // URL of the image for Item 1
     },
     {
       id: 2,
-      title: 'Ad Title 2',
-      description: 'Ad Description 2',
-      // Add more ad-specific data
+      shelterId: 2, // Replace 1 with the actual shelterId for this ad
+      title: "Item 2",
+      dateAdded: "2022-03-12",
+      category: "shelter",
+      location: "Location 2",
+      imageUrl: "https://source.unsplash.com/yMSecCHsIBc", // URL of the image for Item 2
     },
     // Add more ads as needed
   ];
@@ -71,36 +85,52 @@ const ShelterView: React.FC<ShelterViewProps> = ({ shelterId }) => {
   };
 
   return (
-      <div className={styles.container}>
-        <div className={styles.shelterInfo}>
-          <img src={shelterData.avatar} alt={shelterData.name} className={styles.avatar} />
-          <h2>{shelterData.name}</h2>
-          <div className={styles.socialLinks}>
-            {shelterData.socialLinks.map((link) => (
-                <a key={link.platform} href={link.url} target="_blank" rel="noopener noreferrer">
-                  {link.platform}
-                </a>
-            ))}
-          </div>
-          <div className={styles.contact}>
-            <p>Email: {shelterData.contact.email}</p>
-            <p>Phone: {shelterData.contact.phone}</p>
-            {/* Render more contact details as needed */}
-          </div>
+    <div className={styles.container}>
+      <div className={styles.shelterInfo}>
+        <img
+          src={shelterData.avatar}
+          alt={shelterData.name}
+          className={styles.avatar}
+        />
+        <h2>{shelterData.name}</h2>
+        <div className={styles.socialLinks}>
+          {shelterData.socialLinks.map((link) => (
+            <a
+              key={link.platform}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.platform}
+            </a>
+          ))}
         </div>
-        <div className={styles.adsList}>
-          <h3>Ads added by {shelterData.name}:</h3>
-          <ul>
-            {adsData.map((ad) => (
-                <li key={ad.id}>
-                  <h4>{ad.title}</h4>
-                  <p>{ad.description}</p>
-                  <button onClick={() => addToFavorites(ad.id)}>Add to Favorites</button>
-                </li>
-            ))}
-          </ul>
+        <div className={styles.contact}>
+          <p>Email: {shelterData.contact.email}</p>
+          <p>Phone: {shelterData.contact.phone}</p>
+          {/* Render more contact details as needed */}
         </div>
       </div>
+      <div className={styles.adsList}>
+        <h3>Ads added by {shelterData.name}:</h3>
+        <ul>
+          {adsData.map((result) => (
+            <div key={result.id}>
+              {/* Render the item thumbnail with the link to the item view */}
+              <ItemThumbnail
+                id={result.id}
+                title={result.title}
+                dateAdded={result.dateAdded}
+                category={result.category}
+                location={result.location}
+                imageUrl={result.imageUrl}
+                // Add other properties from the AdData interface as needed
+              />
+            </div>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 };
 

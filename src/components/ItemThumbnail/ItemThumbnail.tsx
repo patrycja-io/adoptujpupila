@@ -43,7 +43,7 @@ const ItemThumbnail: React.FC<ItemThumbnailProps> = ({
         <div className={styles.itemContent}>
           <h3 className={styles.itemTitle}>{title}</h3>
           <p className={styles.itemDescription}>
-            <Link to="/shelter" className={styles.categoryLink}>
+            <Link to="/shelterview" className={styles.categoryLink}>
               {category === "private" ? "Private" : "Shelter"}
             </Link> <br />
             Added: {dateAdded}

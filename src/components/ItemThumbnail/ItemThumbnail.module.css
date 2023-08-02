@@ -82,3 +82,54 @@
   padding: 4px 8px;
   border-radius: 4px;
 }
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  /* Adjust styles for smaller screens (e.g., tablets and mobile devices) */
+  .thumbnailImage {
+    width: 100px;
+    height: 100px;
+  }
+
+  .itemTitle {
+    font-size: 20px;
+    top: 12px;
+  }
+
+  .itemDescription {
+    font-size: 14px;
+    margin: 30px 0;
+  }
+
+  .itemLocation {
+    font-size: 12px;
+    top: 12px;
+    right: 12px;
+    padding: 2px 4px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Further adjustments for even smaller screens (e.g., smaller mobile devices) */
+  .thumbnailImage {
+    width: 80px;
+    height: 80px;
+  }
+
+  .itemTitle {
+    font-size: 18px;
+    top: 27px;
+  }
+
+  .itemDescription {
+    font-size: 12px;
+    margin: 24px 0;
+  }
+
+  .itemLocation {
+    font-size: 10px;
+    top: 10px;
+    right: 10px;
+    padding: 1px 2px;
+  }
+}
