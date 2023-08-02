@@ -24,3 +24,26 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Media query for screens with a maximum width of 767px (mobile) */
+@media (max-width: 767px) {
+  .avatar-container {
+    width: 170px; /* Set a slightly bigger width for mobile */
+    height: 170px; /* Set a slightly bigger height for mobile */
+  }
+
+  .avatar-container div {
+    width: 70px; /* Set a slightly bigger width for the SVG container on mobile */
+    height: 70px; /* Set a slightly bigger height for the SVG container on mobile */
+  }
+
+  .avatar-container p {
+    font-size: 14px; /* Adjust the font size for the name on mobile */
+  }
+
+  .avatar-container img {
+    width: 120px; /* Set a slightly bigger width for the image on mobile */
+    height: 120px; /* Set a slightly bigger height for the image on mobile */
+    margin-top:20px
+  }
+
+}

@@ -8,7 +8,6 @@ import zp from "../../assets/zp.png";
 import opolskie from "../../assets/opolskie.jpeg";
 import mazowsze from "../../assets/mazowsze.png";
 
-
 import { useTranslation } from "react-i18next";
 
 interface Voivodeship {
@@ -16,8 +15,11 @@ interface Voivodeship {
   image: string; // Assuming the image is a URL or file path
 }
 const MainPage: React.FC = () => {
-
   const catAvatarsData: { name: string; svgData: string }[] = [
+    {
+      name: "cat1",
+      svgData: "<svg ></svg>",
+    },
     {
       name: "cat1",
       svgData: "<svg ></svg>",
@@ -42,6 +44,10 @@ const MainPage: React.FC = () => {
   ];
 
   const dogAvatarsData: { name: string; svgData: string }[] = [
+    {
+      name: "dog1",
+      svgData: "<svg ></svg>",
+    },
     {
       name: "dog1",
       svgData: "<svg ></svg>",

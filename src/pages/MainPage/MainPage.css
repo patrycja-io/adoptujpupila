@@ -19,15 +19,6 @@ header h1 {
   font-size: 32px;
   font-weight: bold;
 }
-
-/* Styles for the avatar rows (same as in SearchBar.css) */
-.avatar-row {
-  display: flex;
-  align-items: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
 .avatar-item {
   margin: 10px;
 }
@@ -37,6 +28,7 @@ header h1 {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .banner {
