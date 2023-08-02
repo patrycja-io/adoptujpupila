@@ -10,7 +10,7 @@ interface AvatarProps {
 const Avatar: React.FC<AvatarProps> = ({ name, image }) => {
   return (
       <div className="avatar-container">
-        <img src={placeholder} alt={name} />
+        <img src={image} alt={name} />
         <p>{name}</p>
       </div>
   );
