@@ -1,4 +1,4 @@
-.avatar-container {
+.avatar-logo-container {
   width: 250px; /* Set the desired width of the container */
   height: 250px; /* Set the desired height of the container */
   background-color: #f0f0f0; /* Set a background color for the container */
@@ -8,44 +8,40 @@
   justify-content: center;
 }
 
-.avatar-container p {
+.avatar-logo-container p {
   margin-top: 10px; /* Add some spacing between the avatar and name */
   font-size: 16px; /* Set the desired font size for the name */
   color: #333; /* Set the desired color for the name */
 }
-.avatar-container div {
+.avatar-logo-container div {
+  /* Add styles for the SVG container */
   width: 128px;
   height: 128px;
-  overflow: hidden; /* Hide any overflow from the image */
-  border-radius: 50%; /* Make the container circular (assuming you want a circular avatar) */
 }
 
-.avatar-item img {
-  width: 70%; /* Make the image fill the container */
-  height: 70%; /* Make the image fill the container */
-  object-fit: cover; /* Crop and center the image within the container */
+.avatar-logo-item img {
+  max-width: 120px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Media query for screens with a maximum width of 767px (mobile) */
 @media (max-width: 767px) {
-  .avatar-container {
+  .avatar-logo-container {
     width: 170px; /* Set a slightly bigger width for mobile */
     height: 170px; /* Set a slightly bigger height for mobile */
   }
 
-  .avatar-container div {
+  .avatar-logo-container div {
     width: 70px; /* Set a slightly bigger width for the SVG container on mobile */
     height: 70px; /* Set a slightly bigger height for the SVG container on mobile */
   }
 
-  .avatar-container p {
+  .avatar-logo-container p {
     font-size: 14px; /* Adjust the font size for the name on mobile */
   }
 
-  .avatar-container img {
+  .avatar-logo-container img {
     width: 120px; /* Set a slightly bigger width for the image on mobile */
-    height: 120px; /* Set a slightly bigger height for the image on mobile */
     margin-top: 20px;
   }
 }

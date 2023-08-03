@@ -1,6 +1,5 @@
 import React from 'react';
 import './Avatar.css'; // Create a CSS file for styling if needed
-import placeholder from "../../assets/placeholder.png";
 
 interface AvatarProps {
   name: string;
