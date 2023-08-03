@@ -22,6 +22,9 @@ header h1 {
 .avatar-item {
   margin: 10px;
 }
+.avatar-logo-item {
+  margin: 10px;
+}
 
 .avatar-row {
   display: flex;

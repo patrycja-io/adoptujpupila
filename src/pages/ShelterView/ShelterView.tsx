@@ -17,7 +17,6 @@ interface AdData {
   category: string;
   location: string;
   imageUrl: string;
-
   // Add more ad-specific data
 }
 
