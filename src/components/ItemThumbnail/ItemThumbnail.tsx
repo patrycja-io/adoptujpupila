@@ -36,7 +36,7 @@ const ItemThumbnail: React.FC<ItemThumbnailProps> = ({
         <div className={styles.thumbnailContainer}>
           <img
             src={imageUrl}
-            alt="Item Thumbnail"
+            alt="ItemView Thumbnail"
             className={styles.thumbnailImage}
           />
         </div>
@@ -45,7 +45,8 @@ const ItemThumbnail: React.FC<ItemThumbnailProps> = ({
           <p className={styles.itemDescription}>
             <Link to="/shelterview" className={styles.categoryLink}>
               {category === "private" ? "Private" : "Shelter"}
-            </Link> <br />
+            </Link>
+            <br />
             Added: {dateAdded}
           </p>
           {/* Add location text in the top-right corner */}
