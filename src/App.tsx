@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState }  from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import BrowserRouter, Route, and Switch
 import Navbar from "./components/Navbar/Navbar";
@@ -10,11 +10,39 @@ import SearchView from "./pages/SearchView/SearchView";
 import ShelterView from "./pages/ShelterView/ShelterView";
 import SearchBarMobile from "./components/SearchBarMobile/SearchBarMobile";
 import ItemView from "./components/Item/ItemView";
+import ShelterList, {Shelter} from "./pages/ShelterList/ShelterList";
 
 // Assuming you have a valid shelterId that you want to pass to ShelterView
 
 // Rest of your code
-
+const dummyShelters: Shelter[] = [
+  {
+    id: 1,
+    name: "Shelter 1",
+    voivodeship: "Dolnośląskie",
+  },
+  {
+    id: 2,
+    name: "Shelter 2",
+    voivodeship: "Dolnośląskie",
+  },
+  {
+    id: 3,
+    name: "Shelter 3",
+    voivodeship: "Małopolskie",
+  },
+  {
+    id: 4,
+    name: "Shelter 4",
+    voivodeship: "Małopolskie",
+  },
+  {
+    id: 5,
+    name: "Shelter 5",
+    voivodeship: "Wielkopolskie",
+  },
+  // Add more shelters as needed
+];
 const App = () => {
   const handleSearch = (query: string, location: string, category: string) => {
     // Perform search logic
@@ -40,6 +68,7 @@ const App = () => {
   // Assuming you have a valid shelterId that you want to pass to ShelterView
   const shelterId = 123;
   const isMobileScreen = () => window.innerWidth <= 767;
+  const [sheltersData, setSheltersData] = useState<Shelter[]>(dummyShelters);
 
   return (
     <Router>
@@ -59,6 +88,10 @@ const App = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/searchview" element={<SearchView />} />
           <Route path="/my-account" element={<MyAccount />} />
+          <Route
+            path="/shelterlist"
+            element={<ShelterList shelters={sheltersData} />}
+          />{" "}
           {/* Pass the shelterId prop to the ShelterView component */}
           <Route
             path="/shelterview"

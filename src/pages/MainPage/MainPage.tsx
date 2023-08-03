@@ -13,66 +13,82 @@ import { useTranslation } from "react-i18next";
 
 interface Voivodeship {
   name: string;
-  image: string; // Assuming the image is a URL or file path
+  image: string;
 }
 const MainPage: React.FC = () => {
-  const catAvatarsData: { name: string; svgData: string; location: string }[] =
-    [
-      {
-        name: "Mißka",
-        location: "Lodz",
-        svgData: "https://source.unsplash.com/njAgfTkYSAA",
-      },
-      {
-        name: "cat1",
-        location: "Lodz",
-        svgData: "https://source.unsplash.com/TweD8nUb3Pc",
-      },
-      {
-        name: "cat1",
-        location: "Lodz",
-        svgData: "https://source.unsplash.com/Px2Y-sio6-c",
-      },
-      {
-        name: "cat1",
-        location: "Lodz",
-        svgData: "https://source.unsplash.com/3im_-kzsoNo",
-      },
-      {
-        name: "cat1",
-        location: "Lodz",
-        svgData: "https://source.unsplash.com/ZTvR9wv3OFs",
-      },
-      {
-        name: "cat1",
-        location: "Lodz",
-        svgData: "https://source.unsplash.com/fVNyjet1CXY",
-      },
-      // Add more cat avatars data as needed
-    ];
-
-  const dogAvatarsData: { name: string; svgData: string }[] = [
+  const catAvatarsData: {
+    name: string;
+    svgData: string;
+    location: string;
+    itemId: number;
+  }[] = [
     {
+      itemId: 1,
+      name: "Mißka",
+      location: "Lodz",
+      svgData: "https://source.unsplash.com/njAgfTkYSAA",
+    },
+    {
+      itemId: 12,
+      name: "cat1",
+      location: "Lodz",
+      svgData: "https://source.unsplash.com/TweD8nUb3Pc",
+    },
+    {
+      itemId: 2,
+      name: "cat1",
+      location: "Lodz",
+      svgData: "https://source.unsplash.com/Px2Y-sio6-c",
+    },
+    {
+      itemId: 22,
+      name: "cat1",
+      location: "Lodz",
+      svgData: "https://source.unsplash.com/3im_-kzsoNo",
+    },
+    {
+      itemId: 222,
+      name: "cat1",
+      location: "Lodz",
+      svgData: "https://source.unsplash.com/ZTvR9wv3OFs",
+    },
+    {
+      itemId: 223,
+      name: "cat1",
+      location: "Lodz",
+      svgData: "https://source.unsplash.com/fVNyjet1CXY",
+    },
+    // Add more cat avatars data as needed
+  ];
+
+  const dogAvatarsData: { name: string; svgData: string; itemId: number }[] = [
+    {
+      itemId: 223,
       name: "dog1",
       svgData: "https://source.unsplash.com/WX4i1Jq_o0Y",
     },
     {
+      itemId: 203,
       name: "dog1",
       svgData: "https://source.unsplash.com/NE0XGVKTmcA",
     },
     {
+      itemId: 2293,
       name: "dog1",
       svgData: "https://source.unsplash.com/TzjMd7i5WQI",
     },
     {
+      itemId: 2233,
       name: "dog1",
       svgData: "https://source.unsplash.com/WX4i1Jq_o0Y",
     },
     {
+      itemId: 2223,
       name: "dog1",
       svgData: "https://source.unsplash.com/JNm1dAElVtE",
     },
     {
+      itemId: 2123,
       name: "dog1",
       svgData: "https://source.unsplash.com/tUCvnMOvXFQ",
     },
@@ -80,13 +96,17 @@ const MainPage: React.FC = () => {
   ];
 
   const AvatarsList: React.FC<{
-    avatarsData: { name: string; svgData: string }[];
+    avatarsData: { name: string; svgData: string; itemId: number }[];
   }> = ({ avatarsData }) => (
     <div className="avatar-row">
       {avatarsData.map((avatarData, index) => (
         <div key={`${avatarData.name}-${index}`} className="avatar-item">
           {/* Render the SVG component */}
-          <Avatar name={avatarData.name} image={avatarData.svgData} />
+          <Avatar
+            name={avatarData.name}
+            image={avatarData.svgData}
+            itemId={avatarData.itemId}
+          />
         </div>
       ))}
     </div>
