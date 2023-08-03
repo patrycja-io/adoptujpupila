@@ -1,6 +1,7 @@
 import React from "react";
 
-interface ItemProps {
+interface ItemViewProps {
+  itemId: number;
   imageUrl: string;
   title: string;
   price: string;
@@ -8,8 +9,8 @@ interface ItemProps {
   contactPhone: string;
   contactName: string;
 }
-
-const Item: React.FC<ItemProps> = ({
+const ItemView: React.FC<ItemViewProps> = ({
+  itemId,
   imageUrl,
   title,
   price,
@@ -35,4 +36,4 @@ const Item: React.FC<ItemProps> = ({
   );
 };
 
-export default Item;
+export default ItemView;

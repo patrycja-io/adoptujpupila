@@ -9,6 +9,7 @@ import MyAccount from "./pages/MyAccount/MyAccount";
 import SearchView from "./pages/SearchView/SearchView";
 import ShelterView from "./pages/ShelterView/ShelterView";
 import SearchBarMobile from "./components/SearchBarMobile/SearchBarMobile";
+import ItemView from "./components/Item/ItemView";
 
 // Assuming you have a valid shelterId that you want to pass to ShelterView
 
@@ -23,6 +24,17 @@ const App = () => {
   const handleMobileSearch = (query: string) => {
     // Perform search logic for mobile
     console.log("Mobile Search:", query);
+  };
+
+  // Dummy data for the item
+  const itemData = {
+    itemId: 123,
+    imageUrl: "https://example.com/item.jpg",
+    title: "Example Item",
+    price: "100",
+    description: "This is an example item for testing.",
+    contactPhone: "123-456-7890",
+    contactName: "John Doe",
   };
 
   // Assuming you have a valid shelterId that you want to pass to ShelterView
@@ -51,6 +63,20 @@ const App = () => {
           <Route
             path="/shelterview"
             element={<ShelterView shelterId={shelterId} />}
+          />
+          <Route
+            path="/items/:itemId" // Use the URL parameter "itemId"
+            element={
+              <ItemView
+                itemId={itemData.itemId}
+                imageUrl={itemData.imageUrl}
+                title={itemData.title}
+                price={itemData.price}
+                description={itemData.description}
+                contactPhone={itemData.contactPhone}
+                contactName={itemData.contactName}
+              />
+            }
           />
         </Routes>
         <Footer />
