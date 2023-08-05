@@ -9,9 +9,10 @@ export interface Shelter {
 
 interface ShelterListProps {
   shelters: Shelter[];
+  onSelectShelter: (shelterId: number) => void;
 }
 
-const ShelterList: React.FC<ShelterListProps> = ({ shelters }) => {
+const ShelterList: React.FC<ShelterListProps> = ({ shelters,onSelectShelter }) => {
   // Group shelters by voivodeship
   const sheltersByVoivodeship: { [key: string]: Shelter[] } = {};
   shelters.forEach((shelter) => {
@@ -29,7 +30,7 @@ const ShelterList: React.FC<ShelterListProps> = ({ shelters }) => {
           <h2>{voivodeship}</h2>
           <ul>
             {shelters.map((shelter) => (
-              <li key={shelter.id}>
+              <li key={shelter.id }onClick={() => onSelectShelter(shelter.id)}>
                 {/* Use Link component to navigate to ShelterView */}
                 <Link to={`/shelterview/${shelter.id}`}>{shelter.name}</Link>
               </li>

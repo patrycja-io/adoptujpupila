@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"; // Import BrowserRouter, Route, and Switch
 import Navbar from "./components/Navbar/Navbar";
@@ -10,39 +10,51 @@ import SearchView from "./pages/SearchView/SearchView";
 import ShelterView from "./pages/ShelterView/ShelterView";
 import SearchBarMobile from "./components/SearchBarMobile/SearchBarMobile";
 import ItemView from "./components/Item/ItemView";
-import ShelterList, {Shelter} from "./pages/ShelterList/ShelterList";
+import ShelterList from "./pages/ShelterList/ShelterList";
+import { useNavigate } from "react-router-dom";
 
-// Assuming you have a valid shelterId that you want to pass to ShelterView
+// Define the Shelter and Voivodeship types/interfaces
+interface SocialLink {
+  platform: string;
+  url: string;
+}
 
-// Rest of your code
+interface Contact {
+  email: string;
+  phone: string;
+}
+
+interface Shelter {
+  id: number;
+  name: string;
+  voivodeship: string;
+  avatar: string;
+  socialLinks: SocialLink[];
+  contact: Contact;
+}
+
+// Define the placeholder image URL
+const placeholder = "https://example.com/placeholder.png";
+
 const dummyShelters: Shelter[] = [
   {
     id: 1,
     name: "Shelter 1",
     voivodeship: "Dolnośląskie",
-  },
-  {
-    id: 2,
-    name: "Shelter 2",
-    voivodeship: "Dolnośląskie",
-  },
-  {
-    id: 3,
-    name: "Shelter 3",
-    voivodeship: "Małopolskie",
-  },
-  {
-    id: 4,
-    name: "Shelter 4",
-    voivodeship: "Małopolskie",
-  },
-  {
-    id: 5,
-    name: "Shelter 5",
-    voivodeship: "Wielkopolskie",
+    avatar: placeholder,
+    socialLinks: [
+      { platform: "Facebook", url: "http://www.patrycja.io" },
+      { platform: "Instagram", url: "http://www.patrycja.io" },
+      // Add more social links as needed
+    ],
+    contact: {
+      email: "contact@shelter1.com",
+      phone: "+1234567890",
+    },
   },
   // Add more shelters as needed
 ];
+
 const App = () => {
   const handleSearch = (query: string, location: string, category: string) => {
     // Perform search logic
@@ -52,6 +64,15 @@ const App = () => {
   const handleMobileSearch = (query: string) => {
     // Perform search logic for mobile
     console.log("Mobile Search:", query);
+  };
+  // State to keep track of the selected shelterId
+  const [selectedShelterId, setSelectedShelterId] = useState<number | null>(
+    null,
+  );
+
+  // Function to handle selecting a shelter
+  const handleShelterSelect = (shelterId: number) => {
+    setSelectedShelterId(shelterId);
   };
 
   // Dummy data for the item
@@ -65,8 +86,9 @@ const App = () => {
     contactName: "John Doe",
   };
 
-  // Assuming you have a valid shelterId that you want to pass to ShelterView
-  const shelterId = 123;
+  const handleSelectShelter = (shelterId: number) => {
+    setSelectedShelterId(shelterId);
+  };
   const isMobileScreen = () => window.innerWidth <= 767;
   const [sheltersData, setSheltersData] = useState<Shelter[]>(dummyShelters);
 
@@ -90,12 +112,22 @@ const App = () => {
           <Route path="/my-account" element={<MyAccount />} />
           <Route
             path="/shelterlist"
-            element={<ShelterList shelters={sheltersData} />}
-          />{" "}
-          {/* Pass the shelterId prop to the ShelterView component */}
+            element={
+              <ShelterList
+                shelters={sheltersData}
+                onSelectShelter={handleShelterSelect}
+              />
+            }
+          />
           <Route
-            path="/shelterview"
-            element={<ShelterView shelterId={shelterId} />}
+            path="/shelterview/:shelterId"
+            element={
+              selectedShelterId ? (
+                <ShelterView parsedShelterId={selectedShelterId} />
+              ) : (
+                <div>Loading...</div>
+              )
+            }
           />
           <Route
             path="/items/:itemId" // Use the URL parameter "itemId"

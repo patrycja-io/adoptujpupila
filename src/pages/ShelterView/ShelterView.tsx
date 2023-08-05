@@ -1,9 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styles from "./ShelterView.module.css";
 import ItemThumbnail from "../../components/ItemThumbnail/ItemThumbnail"; // Import CSS module
 import placeholder from "../../assets/placeholder.png";
-// Assuming you have a valid shelterId that you want to pass to ShelterView
+import { useParams } from "react-router-dom";
 
+interface Contact {
+  email: string;
+  phone: string;
+  // Add more contact details as needed
+}
 interface SocialLink {
   platform: string;
   url: string;
@@ -21,37 +26,106 @@ interface AdData {
 }
 
 interface ShelterData {
+  id: number;
   name: string;
+  voivodeship: string;
   avatar: string;
   socialLinks: SocialLink[];
-  contact: {
-    email: string;
-    phone: string;
-    // Add more contact details as needed
-  };
+  contact: Contact[];
 }
 
 interface ShelterViewProps {
-  shelterId: number;
+  parsedShelterId?: number;
 }
 
-const ShelterView: React.FC<ShelterViewProps> = ({ shelterId }) => {
-  // Fetch shelter's data based on shelterId or any other logic you have
-  // Replace the placeholders with actual data
-  const shelterData: ShelterData = {
-    name: "Shelter Name",
+const dummyShelters: ShelterData[] = [
+  {
+    id: 1,
+    name: "Shelter 1",
+    voivodeship: "Dolnośląskie",
     avatar: placeholder,
     socialLinks: [
       { platform: "Facebook", url: "http://www.patrycja.io" },
       { platform: "Instagram", url: "http://www.patrycja.io" },
       // Add more social links as needed
     ],
-    contact: {
-      email: "contact@shelter.com",
-      phone: "+1234567890",
-      // Add more contact details as needed
-    },
-  };
+    contact: [
+      {
+        email: "contact@shelter1.com",
+        phone: "+1234567890", // Add more contact details as needed
+      },
+    ],
+  },
+  {
+    id: 22,
+    name: "Shelter 22",
+    voivodeship: "Wielkopolskie",
+    avatar: placeholder,
+    socialLinks: [
+      { platform: "Facebook", url: "http://www.patrycja.io" },
+      { platform: "Instagram", url: "http://www.patrycja.io" },
+      // Add more social links as needed
+    ],
+    contact: [
+      {
+        email: "contact@shelter1.com",
+        phone: "+1234567890", // Add more contact details as needed
+      },
+    ],
+  },
+  {
+    id: 222,
+    name: "Shelter 222",
+    voivodeship: "Lubuskie",
+    avatar: placeholder,
+    socialLinks: [
+      { platform: "Facebook", url: "http://www.patrycja.io" },
+      { platform: "Instagram", url: "http://www.patrycja.io" },
+      // Add more social links as needed
+    ],
+    contact: [
+      {
+        email: "contact@shelter1.com",
+        phone: "+1234567890", // Add more contact details as needed
+      },
+    ],
+  },
+  {
+    id: 7777,
+    name: "Shelter 7777",
+    voivodeship: "Pomorskie",
+    avatar: placeholder,
+    socialLinks: [
+      { platform: "Facebook", url: "http://www.patrycja.io" },
+      { platform: "Instagram", url: "http://www.patrycja.io" },
+      // Add more social links as needed
+    ],
+    contact: [
+      {
+        email: "contact@shelter1.com",
+        phone: "+1234567890", // Add more contact details as needed
+      },
+    ],
+  },
+];
+
+const ShelterView: React.FC<ShelterViewProps> = ({ parsedShelterId }) => {
+  const { shelterId } = useParams<{ shelterId: string }>(); // Get shelterId from URL parameter
+
+  let parsedShelterIdNumber: number | null = null;
+
+  if (shelterId != null) {
+    parsedShelterIdNumber = parseInt(shelterId, 10);
+  }
+
+  const shelterData = dummyShelters.find(
+      (shelter) => shelter.id === parsedShelterIdNumber
+  );
+
+  if (!shelterData) {
+    return <div>Shelter not found.</div>;
+  }
+
 
   // Fetch ads added by the shelter (Assuming an array of ads)
   // Replace the placeholders with actual data
@@ -105,9 +179,14 @@ const ShelterView: React.FC<ShelterViewProps> = ({ shelterId }) => {
           ))}
         </div>
         <div className={styles.contact}>
-          <p>Email: {shelterData.contact.email}</p>
-          <p>Phone: {shelterData.contact.phone}</p>
-          {/* Render more contact details as needed */}
+          <Fragment>
+            {shelterData.contact.map((contacts) => (
+              <>
+                <p>Email: {contacts.email}</p>
+                <p>Phone: {contacts.phone}</p>
+              </>
+            ))}
+          </Fragment>
         </div>
       </div>
       <div className={styles.adsList}>
