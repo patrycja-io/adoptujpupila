@@ -1,41 +1,43 @@
 import React from "react";
 import AvatarLogo from "../AvatarLogo/AvatarLogo";
-import Dolnyslask from "../../assets/Dolnyslask.jpg";
+import dolnyslask from "../../assets/Dolnyslask.jpg";
 import pomorskie from "../../assets/pomorskie.jpg";
-import mazowsze from "../../assets/mazowsze.png";
+import mazowieckie from "../../assets/mazowsze.png";
 import opolskie from "../../assets/opolskie.jpeg";
 import wielkopolskie from "../../assets/wielkopolskie.png";
 import zp from "../../assets/zp.png";
 import lubuskie from "../../assets/lubuskie.png";
+import zachodniopomorskie from "../../assets/zachodniopomorskie.png";
+import podkarpackie from "../../assets/podkarpackie.png";
 import podlaskie from "../../assets/podlaskie.jpeg";
 
-export interface Voivoideship {
+export interface Voivodeship {
   id: number;
   name: string;
   image: string;
 }
 
-const voivodeships: Voivoideship[] = [
-  { id: 1, name: "Dolnośląskie", image: Dolnyslask },
+const voivodeships: Voivodeship[] = [
+  { id: 1, name: "Dolnośląskie", image: dolnośląskie },
   { id: 2, name: "Kujawsko-Pomorskie", image: pomorskie },
-  { id: 3, name: "Lubelskie", image: Dolnyslask },
+  { id: 3, name: "Lubelskie", image: lubelskie }, // Corrected image name
   { id: 4, name: "Lubuskie", image: lubuskie },
-  { id: 5, name: "Lódzkie", image: Dolnyslask },
-  { id: 6, name: "Małopolskie", image: Dolnyslask },
-  { id: 7, name: "Mazowieckie", image: mazowsze },
+  { id: 5, name: "Łódzkie", image: lodzkie }, // Corrected name and image name
+  { id: 6, name: "Małopolskie", image: malopolskie }, // Corrected image name
+  { id: 7, name: "Mazowieckie", image: mazowieckie }, // Corrected image name
   { id: 8, name: "Opolskie", image: opolskie },
-  { id: 9, name: "Podkarpackie", image: Dolnyslask },
+  { id: 9, name: "Podkarpackie", image: podkarpackie }, // Corrected image name
   { id: 10, name: "Podlaskie", image: podlaskie },
   { id: 11, name: "Pomorskie", image: pomorskie },
-  { id: 12, name: "Sląskie", image: Dolnyslask },
-  { id: 13, name: "Swiętokrzyskie", image: Dolnyslask },
-  { id: 14, name: "Warmińsko-mazurskie", image: Dolnyslask },
+  { id: 12, name: "Śląskie", image: slaskie }, // Corrected name and image name
+  { id: 13, name: "Świętokrzyskie", image: swietokrzyskie }, // Corrected name and image name
+  { id: 14, name: "Warmińsko-mazurskie", image: warminskomazurskie }, // Corrected name and image name
   { id: 15, name: "Wielkopolskie", image: wielkopolskie },
-  { id: 16, name: "Zachodniopomorskie", image: zp },
+  { id: 16, name: "Zachodniopomorskie", image: zachodniopomorskie }, // Corrected image name
 ];
 
 const VoivodeshipsList: React.FC<{
-  voivodeships: Voivoideship[];
+  voivodeships: Voivodeship[];
 }> = ({ voivodeships }) => (
   <div className="avatar-row">
     {voivodeships.map((voivodeship, index) => (

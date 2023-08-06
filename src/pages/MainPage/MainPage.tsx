@@ -3,12 +3,11 @@ import "./MainPage.css";
 import Avatar from "../../components/Avatar/Avatar";
 import { useTranslation } from "react-i18next";
 import styles from "../../components/ItemThumbnail/ItemThumbnail.module.css";
-import VoivodeshipsList, {Voivodeship} from "../../components/VoivoideshipList/VoivoideshipsList";
+import VoivodeshipsList from "../../components/VoivoideshipList/VoivoideshipsList";
 
-interface MainPageProps {
-  voivodeships: Voivodeship[];
+export interface MainPageProps {
+  voivodeships: Voivoideship[]; //
 }
-
 const MainPage: React.FC<MainPageProps> = ({ voivodeships }: MainPageProps) => {
   const catAvatarsData: {
     name: string;
@@ -125,12 +124,9 @@ const MainPage: React.FC<MainPageProps> = ({ voivodeships }: MainPageProps) => {
       </div>
       <div className="promowane-container">
         <header className="banner">
-          <h1 className="centered-text">Ogloszenia Promowane</h1>
+          <h1 className="centered-text">Ogloszenia Prywatne</h1>
         </header>
-        {/* Cats Row */}
-        <AvatarsList avatarsData={catAvatarsData} />
-        {/* Dogs Row */}
-        <AvatarsList avatarsData={dogAvatarsData} />
+        <h1 className="centered-text">Wkrotce</h1>
       </div>
     </Fragment>
   );

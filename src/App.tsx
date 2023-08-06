@@ -11,6 +11,7 @@ import ShelterView from "./pages/ShelterView/ShelterView";
 import SearchBarMobile from "./components/SearchBarMobile/SearchBarMobile";
 import ItemView from "./components/Item/ItemView";
 import ShelterList from "./pages/ShelterList/ShelterList";
+import {Voivodeship} from "./components/VoivoideshipList/VoivoideshipsList";
 
 // Define the Shelter and Voivodeship types/interfaces
 interface SocialLink {
@@ -120,9 +121,7 @@ const App = () => {
   };
   const isMobileScreen = () => window.innerWidth <= 767;
   const [sheltersData, setSheltersData] = useState<Shelter[]>(dummyShelters);
-  const [voivodeshipsData, setVoivodeshipsData] = useState<Voivodeship[]>(
-      dummyVoivodeships
-  );
+  const [voivodeshipsData, setVoivodeshipsData] = useState<Voivodeship[]>();
 
   return (
     <Router>
