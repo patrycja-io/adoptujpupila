@@ -11,7 +11,6 @@ import ShelterView from "./pages/ShelterView/ShelterView";
 import SearchBarMobile from "./components/SearchBarMobile/SearchBarMobile";
 import ItemView from "./components/Item/ItemView";
 import ShelterList from "./pages/ShelterList/ShelterList";
-import { useNavigate } from "react-router-dom";
 
 // Define the Shelter and Voivodeship types/interfaces
 interface SocialLink {
@@ -41,6 +40,36 @@ const dummyShelters: Shelter[] = [
     id: 1,
     name: "Shelter 1",
     voivodeship: "Dolnośląskie",
+    avatar: placeholder,
+    socialLinks: [
+      { platform: "Facebook", url: "http://www.patrycja.io" },
+      { platform: "Instagram", url: "http://www.patrycja.io" },
+      // Add more social links as needed
+    ],
+    contact: {
+      email: "contact@shelter1.com",
+      phone: "+1234567890",
+    },
+  },
+  {
+    id: 2,
+    name: "Shelter 2",
+    voivodeship: "Mazowieckie",
+    avatar: placeholder,
+    socialLinks: [
+      { platform: "Facebook", url: "http://www.patrycja.io" },
+      { platform: "Instagram", url: "http://www.patrycja.io" },
+      // Add more social links as needed
+    ],
+    contact: {
+      email: "contact@shelter1.com",
+      phone: "+1234567890",
+    },
+  },
+  {
+    id: 3,
+    name: "Shelter 3",
+    voivodeship: "Pomorskie",
     avatar: placeholder,
     socialLinks: [
       { platform: "Facebook", url: "http://www.patrycja.io" },
@@ -91,6 +120,9 @@ const App = () => {
   };
   const isMobileScreen = () => window.innerWidth <= 767;
   const [sheltersData, setSheltersData] = useState<Shelter[]>(dummyShelters);
+  const [voivodeshipsData, setVoivodeshipsData] = useState<Voivodeship[]>(
+      dummyVoivodeships
+  );
 
   return (
     <Router>
@@ -107,7 +139,7 @@ const App = () => {
           />
         )}
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<MainPage voivodeships={voivodeshipsData} />} />
           <Route path="/searchview" element={<SearchView />} />
           <Route path="/my-account" element={<MyAccount />} />
           <Route

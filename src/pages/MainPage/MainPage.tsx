@@ -1,21 +1,15 @@
 import React, { Fragment } from "react";
 import "./MainPage.css";
 import Avatar from "../../components/Avatar/Avatar";
-import AvatarLogo from "../../components/AvatarLogo/AvatarLogo";
-import Dolnyslask from "../../assets/Dolnyslask.jpg";
-import wielkopolskie from "../../assets/wielkopolskie.png";
-import pomorskie from "../../assets/pomorskie.jpg";
-import zp from "../../assets/zp.png";
-import opolskie from "../../assets/opolskie.jpeg";
-import mazowsze from "../../assets/mazowsze.png";
-
 import { useTranslation } from "react-i18next";
+import styles from "../../components/ItemThumbnail/ItemThumbnail.module.css";
+import VoivodeshipsList, {Voivodeship} from "../../components/VoivoideshipList/VoivoideshipsList";
 
-interface Voivodeship {
-  name: string;
-  image: string;
+interface MainPageProps {
+  voivodeships: Voivodeship[];
 }
-const MainPage: React.FC = () => {
+
+const MainPage: React.FC<MainPageProps> = ({ voivodeships }: MainPageProps) => {
   const catAvatarsData: {
     name: string;
     svgData: string;
@@ -112,85 +106,6 @@ const MainPage: React.FC = () => {
     </div>
   );
 
-  const voivodeShips: Voivodeship[] = [
-    {
-      name: "Dolnośląskie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Kujawsko-Pomorskie",
-      image: pomorskie,
-    },
-    {
-      name: "Lubelskie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Lubuskie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Lódzkie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Małopolskie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Mazowieckie",
-      image: mazowsze,
-    },
-    {
-      name: "Opolskie",
-      image: opolskie,
-    },
-    {
-      name: "Podkarpackie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Podlaskie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Pomorskie",
-      image: pomorskie,
-    },
-    {
-      name: "Sląskie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Swiętokrzyskie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Warmińsko-mazurskie",
-      image: Dolnyslask,
-    },
-    {
-      name: "Wielkopolskie",
-      image: wielkopolskie,
-    },
-    {
-      name: "Zachodniopomorskie",
-      image: zp,
-    },
-  ];
-  const VoivodeshipsList: React.FC<{
-    voivodeships: Voivodeship[];
-  }> = ({ voivodeships }) => (
-    <div className="avatar-row">
-      {voivodeships.map((voivodeship, index) => (
-        <div key={`${voivodeship.name}-${index}`} className="avatar-logo-item">
-          {/* Render the image using the "image" prop */}
-          <AvatarLogo name={voivodeship.name} image={voivodeship.image} />
-        </div>
-      ))}
-    </div>
-  );
-
   return (
     <Fragment>
       <div className="adoptujteraz-container">
@@ -206,7 +121,7 @@ const MainPage: React.FC = () => {
         <header className="banner">
           <h1 className="centered-text">Schroniska</h1>
         </header>
-        <VoivodeshipsList voivodeships={voivodeShips} />
+        <VoivodeshipsList voivodeships={voivodeships} />
       </div>
       <div className="promowane-container">
         <header className="banner">
@@ -214,7 +129,6 @@ const MainPage: React.FC = () => {
         </header>
         {/* Cats Row */}
         <AvatarsList avatarsData={catAvatarsData} />
-
         {/* Dogs Row */}
         <AvatarsList avatarsData={dogAvatarsData} />
       </div>
