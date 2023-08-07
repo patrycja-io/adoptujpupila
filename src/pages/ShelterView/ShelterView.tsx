@@ -119,13 +119,12 @@ const ShelterView: React.FC<ShelterViewProps> = ({ parsedShelterId }) => {
   }
 
   const shelterData = dummyShelters.find(
-      (shelter) => shelter.id === parsedShelterIdNumber
+    (shelter) => shelter.id === parsedShelterIdNumber,
   );
 
   if (!shelterData) {
     return <div>Shelter not found.</div>;
   }
-
 
   // Fetch ads added by the shelter (Assuming an array of ads)
   // Replace the placeholders with actual data

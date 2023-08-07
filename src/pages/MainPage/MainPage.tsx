@@ -3,12 +3,9 @@ import "./MainPage.css";
 import Avatar from "../../components/Avatar/Avatar";
 import { useTranslation } from "react-i18next";
 import styles from "../../components/ItemThumbnail/ItemThumbnail.module.css";
-import VoivodeshipsList from "../../components/VoivoideshipList/VoivoideshipsList";
+import VoivodeshipsList, {Voivodeship} from "../../components/VoivoideshipList/VoivoideshipsList";
 
-export interface MainPageProps {
-  voivodeships: Voivoideship[]; //
-}
-const MainPage: React.FC<MainPageProps> = ({ voivodeships }: MainPageProps) => {
+const MainPage: React.FC<{ voivodeships: Voivodeship[] }> = ({ voivodeships }) => {
   const catAvatarsData: {
     name: string;
     svgData: string;

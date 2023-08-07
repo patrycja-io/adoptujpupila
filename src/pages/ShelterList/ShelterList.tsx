@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "./ShelterList.css";
+
 export interface Shelter {
   id: number;
   name: string;
@@ -49,20 +50,31 @@ const ShelterList: React.FC<ShelterListProps> = ({
   }, []);
 
   return (
-    <div className="shelter-list">
-      {Object.entries(sheltersByVoivodeship).map(([voivodeship, shelters]) => (
-        <div key={voivodeship}>
-          <h2>{voivodeship}</h2>
-          <ul>
-            {shelters.map((shelter) => (
-              <li key={shelter.id} onClick={() => onSelectShelter(shelter.id)}>
-                {/* Use Link component to navigate to ShelterView */}
-                <Link to={`/shelterview/${shelter.id}`}>{shelter.name}</Link>
-              </li>
-            ))}
-          </ul>
+    <div className="shelter-list-container">
+      <div className="shelter-list">
+        <div className="shelter-list-row">
+          {Object.entries(sheltersByVoivodeship).map(
+            ([voivodeship, shelters]) => (
+              <div className="shelter-list-row-style"key={voivodeship}>
+                <h2>{voivodeship}</h2>
+                <ul>
+                  {shelters.map((shelter) => (
+                    <li
+                      key={shelter.id}
+                      onClick={() => onSelectShelter(shelter.id)}
+                    >
+                      {/* Use Link component to navigate to ShelterView */}
+                      <Link to={`/shelterview/${shelter.id}`}>
+                        {shelter.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ),
+          )}
         </div>
-      ))}
+      </div>
     </div>
   );
 };
