@@ -1,46 +1,69 @@
-# Getting Started with Create React App
+# AdoptujPupila - Monorepo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+- [Introduction](#introduction)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Available Scripts
+## Introduction
+AdoptujPupila is a monorepo containing multiple projects related to pet adoption services. This repository includes both the frontend and backend codebases.
 
-In the project directory, you can run:
+## Project Structure
+adoptujpupila_to_fix/
+├── packages/
+│ ├── frontend/
+│ └── backend/
+├── lerna.json
+├── package.json
+├── README.md
+└── .gitignore
 
-### `npm start`
+markdown
+Copy code
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `packages/`: Contains the frontend and backend projects.
+- `lerna.json`: Configuration file for Lerna.
+- `package.json`: Root package file.
+- `README.md`: This file.
+- `.gitignore`: Specifies files to be ignored by Git.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
+To get started, clone the repository:
+```bash
+git clone https://github.com/patrycja-io/adoptujpupila_to_fix.git
+cd adoptujpupila_to_fix
+Installation
+Navigate to each package directory to install dependencies:
 
-### `npm test`
+bash
+Copy code
+# For frontend
+cd packages/frontend
+npm install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# For backend
+cd ../backend
+npm install
+Usage
+Run the frontend and backend servers:
 
-### `npm run build`
+bash
+Copy code
+# Start frontend
+cd packages/frontend
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Start backend
+cd ../backend
+npm start
+Access the frontend application at http://localhost:3000 and the backend API at http://localhost:5000.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
