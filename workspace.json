@@ -1,0 +1,82 @@
+{
+  "version": 2,
+  "projects": {
+    "adoptujpupila": {
+      "root": "apps/adoptujpupila",
+      "sourceRoot": "apps/adoptujpupila/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/adoptujpupila",
+            "index": "apps/adoptujpupila/src/index.html",
+            "main": "apps/adoptujpupila/src/main.tsx",
+            "polyfills": "apps/adoptujpupila/src/polyfills.ts",
+            "tsConfig": "apps/adoptujpupila/tsconfig.app.json",
+            "assets": [
+              "apps/adoptujpupila/src/favicon.ico",
+              "apps/adoptujpupila/src/assets"
+            ],
+            "styles": [
+              "apps/adoptujpupila/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/adoptujpupila/src/environments/environment.ts",
+                  "with": "apps/adoptujpupila/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "adoptujpupila:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "adoptujpupila:build:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "apps/adoptujpupila/tsconfig.app.json",
+              "apps/adoptujpupila/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/adoptujpupila/**/*"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
+
